@@ -1,0 +1,66 @@
+{
+    "manifest_version": 2,
+    "name": "Container King",
+    "version": "0.1.0",
+    // "default_locale": "en", // Dit lijkt de bitch te zijn..
+    "description": "Work with Firefox containers as if they were sub-sessions.",
+    // "homepage_url": "__TODO_Homepage_url__",
+    "icons": {
+        "48": "icons/crown_solid.svg",
+        "96": "icons/crown_solid.svg"
+    },
+    "permissions": [
+        
+        // Required for contextualIdentities
+        "contextualIdentities",
+        "cookies"
+    ],
+    // Defines the firefox sidebar. The user calls plugin functionality through interacting with this component.
+    "sidebar_action": {
+        "default_title": "Container King",
+        "default_panel": "sidebar/session_center.html",
+        "default_icon": "icons/crown_solid.svg"
+    },
+    // Defines the button that'll be shown next to the URL-bar. Clicking will send an object with the MessageAPI.
+    "browser_action": {
+        "browser_style": true,
+        "default_icon": {
+            "16": "icons/crown_solid.svg",
+            "32": "icons/crown_solid.svg"
+        },
+        "default_title": "__TODO_Browser_action_open_siderbar_title__",
+        "theme_icons": [
+            {
+                "dark": "icons/crown_solid.svg#dark",
+                "light": "icons/crown_solid.svg#light",
+                "size": 16
+            },
+            {
+                "dark": "icons/crown_solid.svg#dark",
+                "light": "icons/crown_solid.svg#light",
+                "size": 32
+            }
+        ]
+    },
+    // Message pump between different UI-components which are related to our extension
+    "background": {
+        "scripts": [
+            "background/background.js"
+        ]
+    },
+    // Defines shortcuts to execute functionality of our extension. Action names starting with '_' are special!
+    "commands": {
+        // Executes the extension button event
+        // "_execute_browser_action": {
+        //     "suggested_key": {
+        //         "default": "__TODO_shortcut_action_open_sidebar_shortcut__"
+        //     }
+        // },
+        // Open the session manager sidebar
+        "_execute_sidebar_action": {
+            "suggested_key": {
+                "default": "Ctrl+Shift+S"
+            }
+        }
+    }
+}

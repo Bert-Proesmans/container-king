@@ -1,0 +1,37 @@
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="session_center.css">
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding">
+</head>
+
+<body id='session_center'>
+    <div id="list_header">
+        <div id="settings" class="menu_button menu_item"></div>
+    </div>
+    <div id="list_body_wrapper">
+        <div id="container_list"></div>
+    </div>
+
+    <!-- scripts which interact with the HTML document -->
+    <script type="module" src="center_index.js"></script>
+    <script nomodule src="dist/bundle.js"></script>
+</body>
+
+<template id="container_list_item_template">
+    <div class="container" draggable="true">
+        <div class="container_type"></div>
+        <div class="container_image_wrapper">
+            <div class="container_image"></div>
+        </div>
+        <div class="container_title_wrapper">
+            <div class="container_name"></div>
+        </div>
+
+        <div class="container_close clickable"></div>
+        <div class="container_restore clickable"></div>
+    </div>
+</template>
+
+</html>

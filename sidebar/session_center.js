@@ -1,9 +1,8 @@
+import create_container_element from "./center_components.js";
 
 function SessionCenter() {
-    this._listWrapper = document.getElementById("list_body_wrapper");
     this._list = document.getElementById("container_list");
-    this._container_item_template = document.getElementById("container_list_item_template");
-}
+ }
 
 SessionCenter.prototype = {
     async init() {
@@ -24,7 +23,7 @@ SessionCenter.prototype = {
     },
 
     async _construct_identity_list() {
-        const identities = await browser.contextualIdentities.query({});  
+        const identities = await browser.contextualIdentities.query({});
         if (!identities.length) {
             this._report_error("__TODO_MSG_NO_IDENTITIES__");
             return;
@@ -33,20 +32,12 @@ SessionCenter.prototype = {
         const listFragment = document.createDocumentFragment();
 
         for (let identity of identities) {
-            let fragment = this._markup_identity_item(identity);
-            listFragment.appendChild(fragment);
+            const containerFragment = await create_container_element(identity);
+            listFragment.appendChild(containerFragment);
         }
 
         this._list.appendChild(listFragment);
     },
-
-    _markup_identity_item(identity) {
-        const item = this._container_item_template.content.children[0].cloneNode(true);
-        let titleView = item.querySelector(".container_name");
-        titleView.innerText = identity.name;
-
-        return item;
-    }
 }
 
 export default SessionCenter;

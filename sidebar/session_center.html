@@ -20,7 +20,7 @@
 </body>
 
 <template id="container_list_item_template">
-    <div class="container" draggable="true">
+    <div class="container">
         <div class="container_type"></div>
         <div class="container_image_wrapper">
             <div class="container_image"></div>
@@ -29,9 +29,17 @@
             <div class="container_name"></div>
         </div>
 
+        <ol class="container_tabs"></ol>
+
         <div class="container_close clickable"></div>
         <div class="container_restore clickable"></div>
     </div>
+</template>
+
+<template id="container_tab_item">
+    <li>
+        <div class="container_tab_name"></div>
+    </li>
 </template>
 
 </html>

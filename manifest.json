@@ -13,7 +13,12 @@
         
         // Required for contextualIdentities
         "contextualIdentities",
-        "cookies"
+        "cookies",
+        
+        // Required for tab information
+        "tabs",
+        // Required for persistent data storage
+        "storage"
     ],
     // Defines the firefox sidebar. The user calls plugin functionality through interacting with this component.
     "sidebar_action": {
@@ -51,11 +56,11 @@
     // Defines shortcuts to execute functionality of our extension. Action names starting with '_' are special!
     "commands": {
         // Executes the extension button event
-        // "_execute_browser_action": {
-        //     "suggested_key": {
-        //         "default": "__TODO_shortcut_action_open_sidebar_shortcut__"
-        //     }
-        // },
+        "_execute_browser_action": {
+            "suggested_key": {
+                "default": "Ctrl+F9"
+            }
+        },
         // Open the session manager sidebar
         "_execute_sidebar_action": {
             "suggested_key": {
